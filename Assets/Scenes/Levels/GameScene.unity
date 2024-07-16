@@ -1217,7 +1217,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276401058}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -9717,12 +9717,7 @@ PrefabInstance:
     - target: {fileID: 4870552773557632513, guid: 3653a01779d43ef4c8fdec8f539ad9cf,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'Root'\n\tTransform 'Root'\n\tTransform 'Root'\n\tFrom
-        animation clip 'idle_air'\n\tFrom animation clip 'move_fwd'\n\tFrom animation
-        clip 'attack2'\n\tFrom animation clip 'attack5'\n\tFrom animation clip 'attacked_F'\n\tFrom
-        animation clip 'dead'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5159078012444724336, guid: 3653a01779d43ef4c8fdec8f539ad9cf,
         type: 3}
