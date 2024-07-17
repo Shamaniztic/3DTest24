@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 // Class representing a grenade action, derived from BaseAction
 public class GrenadeAction : BaseAction
 {
+    [SerializeField] private float grenadeDelay = 0.5f;
     [SerializeField]
     private Transform grenadeProjectilePrefab;
     [SerializeField]
@@ -13,17 +15,68 @@ public class GrenadeAction : BaseAction
 
     private int maxThrowDistance = 7;
 
+    public event EventHandler OnSpecialActionStarted;
+    public event EventHandler OnSpecialActionCompleted;
+
+    private GridPosition targetPosition;
+
+    private enum State
+    {
+        DoingSpecialBeforeHit,
+        DoingSpecialAfterHit,
+    }
+
+    private State state;
+    private float stateTimer;
+
     private void Update()
     {
         if(!isActive)
         {
             return;
         }
+
+        stateTimer -= Time.deltaTime;
+
+        switch (state)
+        {
+            case State.DoingSpecialBeforeHit:
+                Vector3 pos = new(targetPosition.x, 0f, targetPosition.z);
+                Vector3 aimDir = (pos - unit.GetWorldPosition()).normalized;
+
+                float rotateSpeed = 10f;
+                transform.forward = Vector3.Lerp(transform.forward, aimDir, Time.deltaTime * rotateSpeed);
+                break;
+            case State.DoingSpecialAfterHit:
+                break;
+        }
+
+        if (stateTimer <= 0f)
+        {
+            NextState();
+        }
     }
 
-    public override string GetActionName()
+    private void NextState()
     {
-        return "Grenade";
+        switch (state)
+        {
+            case State.DoingSpecialBeforeHit:
+                state = State.DoingSpecialAfterHit;
+                float afterHitStateTime = 0.5f;
+                stateTimer = afterHitStateTime;
+
+                // Instantiate the grenade projectile and set up its behavior
+                Transform grenadeProjectileTransform = Instantiate(grenadeProjectilePrefab, unit.GetWorldPosition(), Quaternion.identity);
+                GrenadeProjectile grenadeProjectile = grenadeProjectileTransform.GetComponent<GrenadeProjectile>();
+                grenadeProjectile.Setup(targetPosition, OnGrenadeBehaviourComplete);
+
+                break;
+            case State.DoingSpecialAfterHit:
+                OnSpecialActionCompleted?.Invoke(this, EventArgs.Empty);
+                ActionComplete();
+                break;
+        }
     }
 
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
@@ -68,13 +121,14 @@ public class GrenadeAction : BaseAction
 
     public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
     {
-        // Instantiate the grenade projectile and set up its behavior
-        Transform grenadeProjectileTransform = Instantiate(grenadeProjectilePrefab, unit.GetWorldPosition(), Quaternion.identity);
-        GrenadeProjectile grenadeProjectile = grenadeProjectileTransform.GetComponent<GrenadeProjectile>();
-        grenadeProjectile.Setup(gridPosition, OnGrenadeBehaviourComplete);
+        targetPosition = gridPosition;
 
+        state = State.DoingSpecialBeforeHit;
+        float beforeHitStateTime = grenadeDelay;
+        stateTimer = beforeHitStateTime;
 
-        Debug.Log("Grenade Action");
+        OnSpecialActionStarted?.Invoke(this, EventArgs.Empty);
+        
         ActionStart(onActionComplete);
     }
 

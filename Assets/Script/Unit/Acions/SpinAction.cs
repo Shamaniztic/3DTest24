@@ -46,11 +46,6 @@ public class SpinAction : BaseAction
         ActionStart(onActionComplete);
     }
 
-    public override string GetActionName()
-    {
-        return "Spin";
-    }
-
     // Method to get a list of valid target grid positions for the action
     public override List<GridPosition> GetValidActionGridPositionList()
     {

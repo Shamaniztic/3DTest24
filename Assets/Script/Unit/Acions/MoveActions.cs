@@ -132,11 +132,6 @@ public class MoveActions : BaseAction
 
         return validGridPositionList;
     }
-
-    public override string GetActionName()
-    {
-        return "Move";
-    }
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
     {
         int targetCountAtGridPosition = unit.GetAction<ShootAction>().GetTargetCountAtPosition(gridPosition);
