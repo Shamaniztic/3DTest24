@@ -10,6 +10,7 @@ public class UnitAnimator : MonoBehaviour
     private const string IS_WALKING = "IsWalking";
     private const string SHOOTING = "Shoot";
     private const string SWORD_SLASH = "SwordSlash";
+    private const string SPECIAL = "SpecialTrigger";
 
     [SerializeField] private Animator animator;
     [SerializeField] private Transform bulletProjectilePrefab;
@@ -34,6 +35,25 @@ public class UnitAnimator : MonoBehaviour
             swordAction.OnSwordActionStarted += SwordAction_OnSwordActionStarted;
             swordAction.OnSwordActionCompleted += SwordAction_OnSwordActionCompleted;
         }
+        if (TryGetComponent(out SpecialAction specialAction))
+        {
+            specialAction.OnSpecialActionStarted += SpecialAction_OnSpecialActionStarted;
+            specialAction.OnSpecialActionCompleted += SpecialAction_OnSpecialActionCompleted;
+        }
+        if (TryGetComponent(out GrenadeAction grenadeAction))
+        {
+            grenadeAction.OnSpecialActionStarted += SpecialAction_OnSpecialActionStarted;
+            grenadeAction.OnSpecialActionCompleted += SpecialAction_OnSpecialActionCompleted;
+        }
+    }
+
+    private void SpecialAction_OnSpecialActionCompleted(object sender, EventArgs e)
+    {
+    }
+
+    private void SpecialAction_OnSpecialActionStarted(object sender, EventArgs e)
+    {
+        animator.SetTrigger(SPECIAL);
     }
 
     private void Start()

@@ -11,6 +11,7 @@ public class ScreenShakeActions : MonoBehaviour
         ShootAction.OnAnyShoot += ShootAction_OnAnyShoot;
         GrenadeProjectile.OnAnyGrenadeExploded += GrenadeProjectile_OnAnyGrenadeExploded;
         SwordAction.OnAnySwordHit += SwordAction_OnAnySwordHit;
+        SpecialAction.OnAnySpecialHit += SwordAction_OnAnySwordHit;
     }
 
     private void SwordAction_OnAnySwordHit(object sender, System.EventArgs e)

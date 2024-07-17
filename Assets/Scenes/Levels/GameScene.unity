@@ -2366,7 +2366,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 5634690122762004811}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1478244211}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84f80ba4a41b8c84cbda664b9a620e98, type: 3}
@@ -3609,6 +3609,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 863ca52505e33994399e1af419a27738, type: 3}
+--- !u!1 &753595789 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5634690122603067494, guid: 8a68c93073d92354f99b503f5e2c939a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1734569557}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &766435509
 GameObject:
   m_ObjectHideFlags: 0
@@ -8534,6 +8540,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5634690122762004811}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1478244211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5634690122603067494, guid: 8a68c93073d92354f99b503f5e2c939a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5634690122762004811}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1478244223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478244211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fb8b8036cdce35448c5ad03b986ac30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Power Strike
+  damage: 30
+  hitTime: 1.4
+  specialSound: {fileID: 8300000, guid: 067e9e361abf1d341870aa62c4267ab7, type: 3}
 --- !u!1001 &1491792041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10250,6 +10278,11 @@ PrefabInstance:
       propertyPath: actionName
       value: Fireball
       objectReference: {fileID: 0}
+    - target: {fileID: 7196074397270591945, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      propertyPath: grenadeDelay
+      value: 2.75
+      objectReference: {fileID: 0}
     - target: {fileID: 8329291445909785781, guid: 8a68c93073d92354f99b503f5e2c939a,
         type: 3}
       propertyPath: hitTime
@@ -10589,6 +10622,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6243526052007595879, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
     - {fileID: 2988439686591497374, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
+    - {fileID: 7196074397270591945, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5635935086353819908, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
     m_AddedGameObjects:
@@ -10596,7 +10630,11 @@ PrefabInstance:
         type: 3}
       insertIndex: 0
       addedObject: {fileID: 564022129}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5634690122603067494, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1734569571}
   m_SourcePrefab: {fileID: 100100000, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
 --- !u!4 &1734569558 stripped
 Transform:
@@ -10604,6 +10642,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1734569557}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1734569571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753595789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fb8b8036cdce35448c5ad03b986ac30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Power Strike
+  damage: 30
+  hitTime: 1.4
+  specialSound: {fileID: 8300000, guid: 067e9e361abf1d341870aa62c4267ab7, type: 3}
 --- !u!1001 &1737489118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10725,6 +10779,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6243526052007595879, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
     - {fileID: 2988439686591497374, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
+    - {fileID: 7196074397270591945, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5635935086353819908, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
     m_AddedGameObjects:
@@ -10732,7 +10787,11 @@ PrefabInstance:
         type: 3}
       insertIndex: 0
       addedObject: {fileID: 879980551}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5634690122603067494, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1929785394}
   m_SourcePrefab: {fileID: 100100000, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
 --- !u!4 &1737489119 stripped
 Transform:
@@ -12010,6 +12069,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bb7fb305b2e5e7498030a975ce19e61, type: 3}
+--- !u!1 &1929785381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5634690122603067494, guid: 8a68c93073d92354f99b503f5e2c939a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1737489118}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1929785394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929785381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fb8b8036cdce35448c5ad03b986ac30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Power Strike
+  damage: 30
+  hitTime: 0.7
+  specialSound: {fileID: 8300000, guid: 067e9e361abf1d341870aa62c4267ab7, type: 3}
 --- !u!224 &1929824231 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 16725288070636037, guid: dbb70d5719b1c5047a0093acd417e289,
@@ -23998,6 +24079,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 6243526052007595879, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
     - {fileID: 2988439686591497374, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
+    - {fileID: 7196074397270591945, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5635935086353819908, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
     m_AddedGameObjects:
@@ -24005,7 +24087,11 @@ PrefabInstance:
         type: 3}
       insertIndex: 0
       addedObject: {fileID: 8486055582002862730}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5634690122603067494, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1478244223}
   m_SourcePrefab: {fileID: 100100000, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
 --- !u!1 &5640291394542108919
 GameObject:
