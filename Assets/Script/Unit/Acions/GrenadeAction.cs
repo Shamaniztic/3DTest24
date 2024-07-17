@@ -21,11 +21,6 @@ public class GrenadeAction : BaseAction
         }
     }
 
-    public override string GetActionName()
-    {
-        return "Fireball";
-    }
-
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
     {
         return new EnemyAIAction

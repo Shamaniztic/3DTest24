@@ -6,6 +6,8 @@ using UnityEngine;
 // Abstract class representing a base action that can be performed by a unit
 public abstract class BaseAction : MonoBehaviour
 {
+    [SerializeField] private string actionName = "Move";
+
     public static event EventHandler OnAnyActionStarted;
     public static event EventHandler OnAnyActionCompleted;
 
@@ -19,7 +21,7 @@ public abstract class BaseAction : MonoBehaviour
     }
 
     // Abstract method to get the name of the action
-    public abstract string GetActionName();
+    public string GetActionName() => actionName;
 
     public abstract void TakeAction(GridPosition gridPosition, Action onActionComplete);
 

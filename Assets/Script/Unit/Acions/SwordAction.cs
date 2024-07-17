@@ -6,6 +6,7 @@ using UnityEngine;
 // Class representing a sword action, derived from BaseAction
 public class SwordAction : BaseAction
 {
+    [SerializeField] private float hitTime = 0.5f;
     public static event EventHandler OnAnySwordHit;
 
     public event EventHandler OnSwordActionStarted;
@@ -66,7 +67,7 @@ public class SwordAction : BaseAction
                 // Play sword sound, damage the target unit, and trigger events
                 unit.SetAudioClip(swordSound);
                 unit.PlayAudioClip();
-                targetUnit.Damage(100);
+                targetUnit.Damage(50);
                 OnAnySwordHit?.Invoke(this, EventArgs.Empty);
                 break;
             case State.SwingingSwordAfterHit:
@@ -74,11 +75,6 @@ public class SwordAction : BaseAction
                 ActionComplete();
                 break;
         }
-    }
-
-    public override string GetActionName()
-    {
-        return "Sword";
     }
 
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
@@ -135,7 +131,7 @@ public class SwordAction : BaseAction
         targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(gridPosition);
 
         state = State.SwingingSwordBeforeHit;
-        float beforeHitStateTime = 0.7f;
+        float beforeHitStateTime = hitTime;
         stateTimer = beforeHitStateTime;
 
         OnSwordActionStarted?.Invoke(this, EventArgs.Empty);

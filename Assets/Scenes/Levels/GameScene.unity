@@ -10170,6 +10170,11 @@ PrefabInstance:
       propertyPath: originalRootBone
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4348795791166290353, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      propertyPath: actionName
+      value: Interact
+      objectReference: {fileID: 0}
     - target: {fileID: 4425461164117897179, guid: 8a68c93073d92354f99b503f5e2c939a,
         type: 3}
       propertyPath: m_IsActive
@@ -10240,7 +10245,24 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7196074397270591945, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      propertyPath: actionName
+      value: Fireball
+      objectReference: {fileID: 0}
+    - target: {fileID: 8329291445909785781, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      propertyPath: hitTime
+      value: 1.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8329291445909785781, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      propertyPath: actionName
+      value: Force Push
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6243526052007595879, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
+    - {fileID: 2988439686591497374, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5635935086353819908, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
     m_AddedGameObjects:
@@ -10484,6 +10506,11 @@ PrefabInstance:
       propertyPath: originalRootBone
       value: 
       objectReference: {fileID: 1593220880}
+    - target: {fileID: 4348795791166290353, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      propertyPath: actionName
+      value: Interact
+      objectReference: {fileID: 0}
     - target: {fileID: 5634690122603067493, guid: 8a68c93073d92354f99b503f5e2c939a,
         type: 3}
       propertyPath: m_RootOrder
@@ -10549,7 +10576,19 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7196074397270591945, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      propertyPath: actionName
+      value: Fireball
+      objectReference: {fileID: 0}
+    - target: {fileID: 8329291445909785781, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      propertyPath: actionName
+      value: Fist
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6243526052007595879, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
+    - {fileID: 2988439686591497374, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5635935086353819908, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
     m_AddedGameObjects:
@@ -10598,6 +10637,11 @@ PrefabInstance:
       propertyPath: originalRootBone
       value: 
       objectReference: {fileID: 1061003167}
+    - target: {fileID: 4348795791166290353, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      propertyPath: actionName
+      value: Interact
+      objectReference: {fileID: 0}
     - target: {fileID: 5634690122603067493, guid: 8a68c93073d92354f99b503f5e2c939a,
         type: 3}
       propertyPath: m_RootOrder
@@ -10663,7 +10707,24 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7196074397270591945, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      propertyPath: actionName
+      value: Fireball
+      objectReference: {fileID: 0}
+    - target: {fileID: 8329291445909785781, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      propertyPath: hitTime
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8329291445909785781, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      propertyPath: actionName
+      value: Axe
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6243526052007595879, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
+    - {fileID: 2988439686591497374, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5635935086353819908, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
     m_AddedGameObjects:
@@ -23839,6 +23900,11 @@ PrefabInstance:
       propertyPath: originalRootBone
       value: 
       objectReference: {fileID: 8775641711260295656}
+    - target: {fileID: 4348795791166290353, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      propertyPath: actionName
+      value: Interact
+      objectReference: {fileID: 0}
     - target: {fileID: 4425461164117897179, guid: 8a68c93073d92354f99b503f5e2c939a,
         type: 3}
       propertyPath: m_IsActive
@@ -23904,6 +23970,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ninja
       objectReference: {fileID: 0}
+    - target: {fileID: 7196074397270591945, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      propertyPath: actionName
+      value: Fireball
+      objectReference: {fileID: 0}
     - target: {fileID: 7353655061919097103, guid: 8a68c93073d92354f99b503f5e2c939a,
         type: 3}
       propertyPath: m_Size.y
@@ -23914,12 +23985,19 @@ PrefabInstance:
       propertyPath: maxMoveDistance
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8329291445909785781, guid: 8a68c93073d92354f99b503f5e2c939a,
+        type: 3}
+      propertyPath: actionName
+      value: Sword
+      objectReference: {fileID: 0}
     - target: {fileID: 8949414939975844083, guid: 8a68c93073d92354f99b503f5e2c939a,
         type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 8d8944115888f764ebb8d71a21545a6f, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6243526052007595879, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
+    - {fileID: 2988439686591497374, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5635935086353819908, guid: 8a68c93073d92354f99b503f5e2c939a, type: 3}
     m_AddedGameObjects:
