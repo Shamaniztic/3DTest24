@@ -23,7 +23,7 @@ public class GrenadeAction : BaseAction
 
     public override string GetActionName()
     {
-        return "Grenade";
+        return "Fireball";
     }
 
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
