@@ -50,6 +50,11 @@ public class UnitActionSystemUI : MonoBehaviour
 
         Unit selectedUnit = UnitActionSystem.Instance.GetSelectedUnit();
 
+        if (selectedUnit.IsEnemy())
+        {
+            return;
+        }
+
         // Create action buttons for each base action of the selected unit
         foreach (BaseAction baseAction in selectedUnit.GetBaseActionArray())
         {

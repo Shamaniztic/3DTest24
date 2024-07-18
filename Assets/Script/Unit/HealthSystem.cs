@@ -14,6 +14,8 @@ public class HealthSystem : MonoBehaviour
 
     private int healthMax;
 
+    public bool IsDead => health <= 0f;
+
     private void Awake()
     {
         healthMax = health;
@@ -21,6 +23,11 @@ public class HealthSystem : MonoBehaviour
 
     public void Damage(int damageAmount)
     {
+        if (IsDead)
+        {
+            return;
+        }
+
         health -= damageAmount;
 
         if(health < 0)
@@ -33,13 +40,18 @@ public class HealthSystem : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            GetComponentInChildren<Animator>().CrossFadeInFixedTime("Hit", 0.1f);
+        }
 
-        Debug.Log(health);
+        //Debug.Log(health);
 
     }
 
     private void Die()
     {
+        GetComponentInChildren<Animator>().CrossFadeInFixedTime("Death", 0.1f);
         OnDead?.Invoke(this, EventArgs.Empty);
     }
 

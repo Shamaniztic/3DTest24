@@ -141,7 +141,8 @@ public class Unit : MonoBehaviour
     private void HealthSystem_OnDead(object sender, EventArgs e)
     {
         LevelGrid.Instance.RemoveUnitAtGridPosition(gridPosition, this);
-        Destroy(gameObject);
+        // Destroy(gameObject);
+        GetComponentInChildren<UnitWorldUI>().gameObject.SetActive(false);
         OnAnyUnitDead?.Invoke(this, EventArgs.Empty);
     }
 
