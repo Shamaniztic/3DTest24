@@ -23,6 +23,11 @@ public class HealthSystem : MonoBehaviour
 
     public void Damage(int damageAmount)
     {
+        if (IsDead)
+        {
+            return;
+        }
+
         health -= damageAmount;
 
         if(health < 0)
