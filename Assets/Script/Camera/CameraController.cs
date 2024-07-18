@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    [SerializeField] private Vector3 offset = new(0, 10, -5);
+
     // Constants for minimum and maximum follow Y offset
     private const float MIN_FOLLOW_Y_OFFSET = 2f;
     private const float MAX_FOLLOW_Y_OFFSET = 12f;
@@ -17,16 +19,25 @@ public class CameraController : MonoBehaviour
     private Vector3 targetFollowOffset;
     private CinemachineTransposer cinemachineTransposer;
 
+    private void Awake()
+    {
+        FindObjectOfType<UnitActionSystem>().OnSelectedUnitChanged += UnitActionSystem_OnSelectedUnitChanged;
+    }
+
     private void Start()
     {
         cinemachineTransposer = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>();
         targetFollowOffset = cinemachineTransposer.m_FollowOffset;
     }
 
+    private void UnitActionSystem_OnSelectedUnitChanged(object sender, System.EventArgs e)
+    {
+        cinemachineVirtualCamera.Follow = UnitActionSystem.Instance.GetSelectedUnit().transform;
+    }
 
     private void Update()
     {
-        HandleMovement();
+        // HandleMovement();
         HandleRotation();
         HandleZoom();
     }
@@ -44,6 +55,7 @@ public class CameraController : MonoBehaviour
 
     private void HandleRotation()
     {
+        return;
         //Camera rotation along y axis
         Vector3 rotationVector = new Vector3(0, 0, 0);
 
@@ -57,6 +69,7 @@ public class CameraController : MonoBehaviour
 
     private void HandleZoom()
     {
+        return;
         float zoomIncreaseAmount = 1f;
         targetFollowOffset.y += InputManager.Instance.GetCameraZoomAmount() * zoomIncreaseAmount;
 
