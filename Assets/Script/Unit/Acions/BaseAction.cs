@@ -7,6 +7,8 @@ using UnityEngine;
 public abstract class BaseAction : MonoBehaviour
 {
     [SerializeField] private string actionName = "Move";
+    public bool IsAttack = false;
+    public bool IsSkill = false;
 
     public static event EventHandler OnAnyActionStarted;
     public static event EventHandler OnAnyActionCompleted;

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 // Class responsible for managing the UI related to unit actions
 public class UnitActionSystemUI : MonoBehaviour
@@ -11,6 +12,10 @@ public class UnitActionSystemUI : MonoBehaviour
     private Transform actionButtonPrefab;
     [SerializeField]
     private Transform actionButtonContainerTransform;
+    [SerializeField]
+    private Transform attackContainerTransform;
+    [SerializeField]
+    private Transform skillContainerTransform;
     [SerializeField]
     private TextMeshProUGUI actionPointsText;
 
@@ -43,6 +48,21 @@ public class UnitActionSystemUI : MonoBehaviour
         //Destroy all previous button game objects
         foreach (Transform buttonTransform in actionButtonContainerTransform)
         {
+            if (buttonTransform.gameObject.name.Contains("Attack") || buttonTransform.gameObject.name.Contains("Skill"))
+            {
+                continue;
+            }
+
+            Destroy(buttonTransform.gameObject);
+        }
+
+        foreach (Transform buttonTransform in attackContainerTransform)
+        {
+            Destroy(buttonTransform.gameObject);
+        }
+
+        foreach (Transform buttonTransform in skillContainerTransform)
+        {
             Destroy(buttonTransform.gameObject);
         }
 
@@ -58,9 +78,29 @@ public class UnitActionSystemUI : MonoBehaviour
         // Create action buttons for each base action of the selected unit
         foreach (BaseAction baseAction in selectedUnit.GetBaseActionArray())
         {
-            Transform actionButtonTransform = Instantiate(actionButtonPrefab, actionButtonContainerTransform);
+            Transform targetContainer = actionButtonContainerTransform;
+
+            if (baseAction.IsAttack)
+            {
+                targetContainer = attackContainerTransform;
+            }
+            else if (baseAction.IsSkill)
+            {
+                targetContainer = skillContainerTransform;
+            }
+
+            Transform actionButtonTransform = Instantiate(actionButtonPrefab, targetContainer);
             ActionButtonUI actionButtonUI = actionButtonTransform.GetComponent<ActionButtonUI>();
             actionButtonUI.SetBaseAction(baseAction);
+
+            if (!baseAction.IsAttack && !baseAction.IsSkill)
+            {
+                actionButtonUI.GetComponent<Button>().onClick.AddListener(() => 
+                {
+                    attackContainerTransform.gameObject.SetActive(false);
+                    skillContainerTransform.gameObject.SetActive(false);
+                });
+            }
 
             actionButtonUIList.Add(actionButtonUI);                             
         }
