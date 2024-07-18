@@ -37,7 +37,7 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        // HandleMovement();
+        HandleMovement();
         HandleRotation();
         HandleZoom();
     }
@@ -46,11 +46,16 @@ public class CameraController : MonoBehaviour
     {
         Vector2 inputMoveDir = InputManager.Instance.GetCameraMoveVector();
 
+        if (inputMoveDir.magnitude > 0)
+        {
+            cinemachineVirtualCamera.Follow = null;
+        }
+
         float moveSpeed = 10f;
 
         // Calculate movement vector based on input and move speed
         Vector3 moveVector = transform.forward * inputMoveDir.y + transform.right * inputMoveDir.x;
-        transform.position += moveVector * moveSpeed * Time.deltaTime;
+        cinemachineVirtualCamera.transform.position += moveVector * moveSpeed * Time.deltaTime;
     }
 
     private void HandleRotation()
