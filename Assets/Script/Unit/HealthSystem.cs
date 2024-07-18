@@ -14,6 +14,8 @@ public class HealthSystem : MonoBehaviour
 
     private int healthMax;
 
+    public bool IsDead => health <= 0f;
+
     private void Awake()
     {
         healthMax = health;

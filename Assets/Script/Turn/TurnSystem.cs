@@ -4,12 +4,14 @@ using UnityEngine;
 // Class responsible for managing turns in the game
 public class TurnSystem : MonoBehaviour
 {
+    [SerializeField] private Unit[] unitOrder;
+
     public static TurnSystem Instance { get; private set; }
 
     public event EventHandler OnTurnChanged;
 
 
-    private int turnNumber = 1;
+    private int turnNumber = 0;
     private bool isPlayerTurn = true;
 
     private void Awake()
@@ -23,10 +25,30 @@ public class TurnSystem : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        UnitActionSystem.Instance.SetSelectedUnit(unitOrder[turnNumber]);
+    }
+
     public void NextTurn()
     {
         turnNumber++;
-        isPlayerTurn = !isPlayerTurn;
+
+        if (turnNumber >= unitOrder.Length)
+        {
+            turnNumber = 0;
+        }
+
+        var unit = unitOrder[turnNumber];
+        isPlayerTurn = !unit.IsEnemy();
+
+        if (unit.GetComponent<HealthSystem>().IsDead && isPlayerTurn)
+        {
+            NextTurn();
+            return;
+        }
+
+        UnitActionSystem.Instance.SetSelectedUnit(unit);
 
         OnTurnChanged?.Invoke(this, EventArgs.Empty);
     }
