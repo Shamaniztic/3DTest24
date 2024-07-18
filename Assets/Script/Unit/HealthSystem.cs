@@ -33,6 +33,10 @@ public class HealthSystem : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            GetComponentInChildren<Animator>().CrossFadeInFixedTime("Hit", 0.1f);
+        }
 
         //Debug.Log(health);
 
@@ -40,6 +44,7 @@ public class HealthSystem : MonoBehaviour
 
     private void Die()
     {
+        GetComponentInChildren<Animator>().CrossFadeInFixedTime("Death", 0.1f);
         OnDead?.Invoke(this, EventArgs.Empty);
     }
 
