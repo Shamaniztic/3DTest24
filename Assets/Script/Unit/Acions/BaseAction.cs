@@ -9,6 +9,7 @@ public abstract class BaseAction : MonoBehaviour
     [SerializeField] private string actionName = "Move";
     public bool IsAttack = false;
     public bool IsSkill = false;
+    public int ManaCost = 0;
 
     public static event EventHandler OnAnyActionStarted;
     public static event EventHandler OnAnyActionCompleted;
@@ -46,6 +47,7 @@ public abstract class BaseAction : MonoBehaviour
         isActive = true;
         this.onActionComplete = onActionComplete;
 
+        unit.GetComponent<ManaSystem>().LoseMana(ManaCost);
         // Trigger event indicating the action has started
         OnAnyActionStarted?.Invoke(this, EventArgs.Empty);
     }

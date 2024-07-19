@@ -4745,6 +4745,7 @@ GameObject:
   - component: {fileID: 7884596205431740387}
   - component: {fileID: 4914648421461703632}
   - component: {fileID: 9025236136290246134}
+  - component: {fileID: 6242749071007945470}
   m_Layer: 7
   m_Name: Unit Enemy
   m_TagString: Untagged
@@ -4819,6 +4820,7 @@ MonoBehaviour:
   actionName: Move
   IsAttack: 0
   IsSkill: 0
+  ManaCost: 0
   maxMoveDistance: 4
   moveSound: {fileID: 8300000, guid: d6c22981d5ef1e342961d558cf82d93a, type: 3}
 --- !u!114 &5483000129896578619
@@ -4867,6 +4869,7 @@ MonoBehaviour:
   actionName: Sword
   IsAttack: 1
   IsSkill: 0
+  ManaCost: 0
   hitTime: 0.8
   swordSound: {fileID: 8300000, guid: 91bdcbc12c742b04bb2dcfd3289905e9, type: 3}
 --- !u!82 &7884596205431740387
@@ -4980,6 +4983,7 @@ MonoBehaviour:
   actionName: Power Strike
   IsAttack: 0
   IsSkill: 1
+  ManaCost: 0
   damage: 30
   hitTime: 1.4
   specialSound: {fileID: 8300000, guid: 067e9e361abf1d341870aa62c4267ab7, type: 3}
@@ -4998,6 +5002,19 @@ MonoBehaviour:
   unitName: Enemy
   unitLevel: 2
   unitJob: Soldier
+--- !u!114 &6242749071007945470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7960402440502196328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4058ef7a11de2b4daac1b2d336004c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mana: 500
 --- !u!1 &8177026409116904509
 GameObject:
   m_ObjectHideFlags: 0

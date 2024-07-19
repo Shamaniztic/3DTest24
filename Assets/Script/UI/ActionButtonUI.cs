@@ -34,4 +34,21 @@ public class ActionButtonUI : MonoBehaviour
         selectedGameObject.SetActive(selectedBaseAction == baseAction);
     }
 
+    private void Update()
+    {
+        var unit = UnitActionSystem.Instance.GetSelectedUnit();
+    
+        if (unit == null)
+        {
+            return;
+        }
+
+        if (baseAction == null)
+        {
+            return;
+        }
+
+        GetComponent<Button>().interactable = unit.GetComponent<ManaSystem>().HasMana(baseAction.ManaCost);
+    }
+
 }
