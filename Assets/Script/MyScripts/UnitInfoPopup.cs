@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class UnitInfoPopup : MonoBehaviour
@@ -7,6 +8,7 @@ public class UnitInfoPopup : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI jobText;
+    [SerializeField] private Image healthBarImage;
 
     private TurnSystem turnSystem;
 
@@ -87,6 +89,8 @@ public class UnitInfoPopup : MonoBehaviour
             levelText.text = unitData.unitLevel.ToString();
             jobText.text = unitData.unitJob;
             popupPanel.SetActive(true);
+
+            healthBarImage.fillAmount = unit.GetComponent<HealthSystem>().HealthPercentage;
         }
         else
         {
