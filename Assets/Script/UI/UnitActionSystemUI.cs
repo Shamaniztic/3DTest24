@@ -91,6 +91,7 @@ public class UnitActionSystemUI : MonoBehaviour
 
             Transform actionButtonTransform = Instantiate(actionButtonPrefab, targetContainer);
             ActionButtonUI actionButtonUI = actionButtonTransform.GetComponent<ActionButtonUI>();
+            actionButtonUI.name = baseAction.GetActionName();
             actionButtonUI.SetBaseAction(baseAction);
 
             if (!baseAction.IsAttack && !baseAction.IsSkill)
@@ -103,6 +104,22 @@ public class UnitActionSystemUI : MonoBehaviour
             }
 
             actionButtonUIList.Add(actionButtonUI);                             
+        }
+
+        StartCoroutine(DelayedAdjustmentCoroutine());
+    }
+
+    private IEnumerator DelayedAdjustmentCoroutine()
+    {
+        yield return new WaitForEndOfFrame();
+
+        foreach (Transform buttonTransform in actionButtonContainerTransform)
+        {
+            if (buttonTransform.gameObject.name.Contains("Move"))
+            {
+                buttonTransform.SetAsFirstSibling();
+                break;
+            }
         }
     }
 
