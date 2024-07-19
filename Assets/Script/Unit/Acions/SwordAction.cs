@@ -143,4 +143,8 @@ public class SwordAction : BaseAction
         return maxSwordDistance;
     }
 
+    public int GetTargetCountAtPosition(GridPosition gridPosition)
+    {
+        return GetValidActionGridPositionList().Count;
+    }
 }
