@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -14,6 +11,7 @@ public class HealthSystem : MonoBehaviour
 
     private int healthMax;
 
+    public float HealthPercentage => health / healthMax;
     public bool IsDead => health <= 0f;
 
     private void Awake()
