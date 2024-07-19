@@ -77,7 +77,14 @@ public class EnemyAI : MonoBehaviour
     // Attempt to take an enemy AI action
     private bool TryTakeEnemyAIAction(Action onEnemyAIActionComplete)
     {
-        return TryTakeEnemyAIAction(UnitActionSystem.Instance.GetSelectedUnit(), onEnemyAIActionComplete);
+        var unit = UnitActionSystem.Instance.GetSelectedUnit();
+
+        if (unit.GetComponent<HealthSystem>().IsDead)
+        {
+            return false;
+        }
+
+        return TryTakeEnemyAIAction(unit, onEnemyAIActionComplete);
     }
 
     // Attempt to take an enemy AI action for a specific unit
