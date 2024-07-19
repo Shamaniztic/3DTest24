@@ -97,13 +97,13 @@ public class UnitAnimator : MonoBehaviour
 
     private void EquipSword()
     {
-        swordTransform.gameObject.SetActive(true);
-        rifleTransform.gameObject.SetActive(false);
+        if (swordTransform != null)
+        {
+            swordTransform.gameObject.SetActive(true);
+        }
     }
     private void EquipRifle()
     {
-        swordTransform.gameObject.SetActive(false);
-        rifleTransform.gameObject.SetActive(true);
     }
 
 
