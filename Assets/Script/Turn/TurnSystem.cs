@@ -30,6 +30,11 @@ public class TurnSystem : MonoBehaviour
         UnitActionSystem.Instance.SetSelectedUnit(unitOrder[turnNumber]);
     }
 
+    public Unit[] GetUnitOrder()
+    {
+        return unitOrder;
+    }
+
     public void NextTurn()
     {
         turnNumber++;
